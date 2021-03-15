@@ -1,0 +1,23 @@
+name: Lint
+
+on: pull_request
+
+jobs:
+  perlnitpick:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install perlnitpick
+        run: cpanm https://github.com/gugod/App-PerlNitpick
+      - name: run perlnitpick
+      - run: perlnitpick --inplace --rules=RemoveTrailingWhitespace,RemoveUnusedVariables .
+      - name: suggester
+        uses: reviewdog/action-suggester@v1
+        with:
+          tool_name: perlnitpick
+
+  perlcritic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gugod/action-perlcritic@fun
