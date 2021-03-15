@@ -10,7 +10,7 @@ jobs:
       - name: install perlnitpick
         run: cpanm https://github.com/gugod/App-PerlNitpick
       - name: run perlnitpick
-      - run: perlnitpick --inplace --rules=RemoveTrailingWhitespace,RemoveUnusedVariables .
+        run: perlnitpick --inplace --rules=RemoveTrailingWhitespace,RemoveUnusedVariables .
       - name: suggester
         uses: reviewdog/action-suggester@v1
         with:
