@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install perlnitpick
-        run: cpanm https://github.com/gugod/App-PerlNitpick
+        run: cpanm --notest --quiet https://github.com/gugod/App-PerlNitpick.git
       - name: run perlnitpick
         run: perlnitpick --inplace --rules=RemoveTrailingWhitespace,RemoveUnusedVariables .
       - name: suggester
