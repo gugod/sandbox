@@ -5,6 +5,8 @@ on: pull_request
 jobs:
   perlnitpick:
     runs-on: ubuntu-latest
+    container:
+      image: perl:5.32
     steps:
       - uses: actions/checkout@v2
       - name: install perlnitpick
